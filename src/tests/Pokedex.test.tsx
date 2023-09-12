@@ -13,7 +13,7 @@ describe('Testando o componente Pokédex', () => {
   it('Teste se é exibido o próximo pokémon da lista quando o botão Próximo Pokémon é clicado', async () => {
     renderWithRouter(<App />);
     const buttonNext = screen.getByRole('button', { name: /Próximo Pokémon/i });
-    const pokemonName = screen.getByTestId('pokemon-name');
+    const pokemonName = screen.getByTestId(/pokemon-name/i);
     await userEvent.click(buttonNext);
     expect(buttonNext).toBeInTheDocument();
     expect(pokemonName).toHaveTextContent('Charmander');
